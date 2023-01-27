@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="number" id="nombre1" value=0>
+    <select id="op" name="select" >
+      <option value="0" selected="selected">Choose an operator</option>
+      <option value="1" >+</option>
+      <option value="2">-</option>
+    </select>
+    <input type="number" id="nombre2" value=0>
+    <p id="resultat"> </p>
+  
+  
+  <script type="text/javascript">  
+     document.getElementById("op").addEventListener('change', function(){
+        var nombre1 = document.getElementById("nombre1").value;
+        var nombre2 = document.getElementById("nombre2").value;
+        var op = document.getElementById("op").value;
+        console.log(op);
+        if(op == "1"){
+            document.getElementById("resultat").innerHTML = (parseInt(nombre1)+parseInt(nombre2));
+        }
+        else {
+            document.getElementById("resultat").innerHTML = (parseInt(nombre1)-parseInt(nombre2));
+        }
+     }    
+      );
+  </script>
+
+
+
+</body>
+</html>
