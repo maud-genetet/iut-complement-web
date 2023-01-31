@@ -14,6 +14,5 @@ function changeBackground() {
 function changeText(){
     document.getElementById("secondLink").innerHTML = "coucou";
     document.getElementById("secondLink").style.backgroundColor = "orange"
-    
 }
    

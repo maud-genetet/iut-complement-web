@@ -10,7 +10,7 @@
     <ul id="sommaire"></ul>
     <div id="para">
         <h1 id="3-1">3-1</h1>
-        <p >
+        <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
             ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
@@ -78,8 +78,8 @@
             var a = document.createElement("a");
             ul.appendChild(li);
             li.appendChild(a);
-            a.appendChild(document.createTextNode(nodes[i].innerHTML));
-            a.setAttribute("href","#"+nodes[i].innerHTML)
+            a.appendChild(document.createTextNode(nodes[i].innerText));
+            a.setAttribute("href","#"+nodes[i].innerText)
         }
     </script>
 </body>

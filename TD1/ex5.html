@@ -26,27 +26,54 @@
     <label>Nom à effacer</label>
     <select id="nomDel" style="width:100px;">
     </select>
-    
-    <button id="del">del</button>
+    <button id="del" onclick="deleteF()">del</button>
   </div>
 
   <script type="text/javascript"> 
     var userMap=new Map();
     var userList = document.getElementById("donnees");
+    var selectUser = document.getElementById("nomDel");
+
+
     function addF() {
-    let name =  document.getElementById("nom").value;
-    let prenom  = document.getElementById("prenom").value;
-        userMap.set(name,prenom)
-        display();
-  }
+      let name =  document.getElementById("nom").value;
+      let prenom  = document.getElementById("prenom").value;
+      userMap.set(name,prenom);
+      display();
+    }
+    
+    function deleteF(){
+      var select = document.getElementById("nomDel");
+      var choice = select.selectedIndex; 
+      var name = select.options[choice].value;
+
+      console.log(name);
+      userMap.delete(name);
+      display();
+
+    }
 
     function display(){
+      removeAllChildNodes(userList);
+      removeAllChildNodes(selectUser);
         if(userMap.size != 0){
         userMap.forEach((values,keys)=>{
             var li = document.createElement("li");
-            userList.appendChild(li)
-            li.innerHTML = keys  +  " " + values ;
+            var option = document.createElement("option");
+            userList.appendChild(li);
+            selectUser.appendChild(option);
+            li.innerText = keys  +  " " + values ;
+            option.innerText = keys  +  " " + values ;
+            li.setAttribute("id",keys);
+            option.setAttribute("value",keys);
+            option.setAttribute("id","optionDel")
         })
+    }
+
+        function removeAllChildNodes(parent) {
+          while (parent.firstChild) {
+              parent.removeChild(parent.firstChild);
+          }
         }
     }      
 </script> 
