@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Planches à gogo</title>
+  <link rel="stylesheet" type="text/css" href="planches.css" />
+  <script src="planches.js"></script>
+</head>
+
+<body onload="prixDeVente()">
+  <h1>Planches à  gogo :: Tableau de bord</h1>
+  <div id="planches">
+   <table width="50%"><br/>
+    <tr><th></th><td>quantité vendue</td><td>prix de vente</td><td>Prix achat</td></tr>
+    
+    <tr class="lacanau"><th>Planche modèle Lacanau</th>
+     <td>0</td><td>0</td><td>0</td></tr>
+
+     <tr class="biarritz"><th>Planche modèle Biarritz</th>
+       <td>0</td><td>0</td><td>0</td></tr>
+
+       <tr class="nice"><th>Planche modèle  Nice</th>
+         <td >0</td><td>0</td><td>0</td></tr>
+       </table><br/>
+       <h2>Bénéfice net : 
+        <span id="benef">0</span> €</h2>
+
+        <select id="typePlanche">
+          <option value="lacanau" selected="selected">Lacanau</option>
+          <option value="biarritz">Biarritz</option>
+          <option value="nice">Nice</option>
+          <option value="toutes">Toutes</option>
+        </select>
+        <button onClick="getPlanchesVendues();">
+         Actualiser
+       </button>        
+     </div>
+ </body>
+ </html>
