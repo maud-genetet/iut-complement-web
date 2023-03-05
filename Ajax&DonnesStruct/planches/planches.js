@@ -12,7 +12,6 @@ function prixDeVente(){
             document.getElementsByClassName(v.modele)[0].childNodes[4].innerText  = v.prixAchat;
         }
     })
-
 }
 function getPlanchesVendues(){
     var select = document.getElementById("typePlanche");
@@ -27,15 +26,14 @@ function getPlanchesVendues(){
     else if (name=="lacanau"){
         valLa  = Math.floor(Math.random() * (1000 - 100) ) + 100;
     }
-    else if(name=="nice"){
+    else if(name=="nice"){          
         valNice  = Math.floor(Math.random() * (1200 - 120) ) + 120;
     }
     else {
         valNice = document.getElementsByClassName("nice")[0].childNodes[2].innerText  = Math.floor(Math.random() *  (1200 - 120) ) + 120      ;
         valLa = document.getElementsByClassName("lacanau")[0].childNodes[2].innerText  = Math.floor(Math.random() * (1000 - 100) ) + 100    ;
-        valbr = document.getElementsByClassName("biarritz")[0].childNodes[2].innerText  = Math.floor(Math.random() * 800 - 180)  + 180    ;
+        valbr = document.getElementsByClassName("biarritz")[0].childNodes[2].innerText  = Math.floor(Math.random() * (800 - 180)  ) + 180    ;
     }
-
 
     nullOrNot("nice",valNice);
     nullOrNot("lacanau",valLa);

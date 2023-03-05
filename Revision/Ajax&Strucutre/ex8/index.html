@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="submit_text">
+    <button type="submit" id="submit_button" onclick="">Send </button>
+    <script>
+        let button_submit = document.getElementById("submit_text");
+        button_submit.addEventListener('keydown',(event)=>{
+            if(event.key == 'Tab'){
+                const promise = new Promise(function(resolve,reject){
+                    result = 0;
+                    const myRequest = new Request('ex.php?nom='+ button_submit.value);
+                    fetch(myRequest)
+                        .then((response) => response.json())
+                        .then((data) =>{
+                            if(data == 1){
+                                alert("C'est valide ! ");
+                            }
+                            else {
+                                alert("nom invalide ! ");
+                            }
+                        })
+                    
+                        .catch(err => {
+                            console.log("voici l'erreur --> " + err);
+                        });;
+                })
+            }
+        })
+    </script>
+</body>
+</html>

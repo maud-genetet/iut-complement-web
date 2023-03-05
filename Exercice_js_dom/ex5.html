@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style type="text/css"> span { color: blue; } .italique { font-style: italic; color: blue; }</style>
+  
+
+  <h1> Liste d'utilisateurs </h1> 
+  
+  <ul id="donnees">
+
+  </ul>
+  
+  <h1>Ajout d'un individu</h1>
+  <div>
+    <label>Nom</label><input id="nom" type="text" name="nom">
+    <label>Prénom</label><input  id="prenom" type="text" name="prenom">
+    <button id="add" onclick="addF()">Add</button>
+  </div>
+  <div style="margin-top: 30px;">
+    <label>Nom à effacer</label>
+    <select id="nomDel" style="width:100px;">
+    </select>
+    <button id="del" onclick="deleteF()">del</button>
+  </div>
+
+  <script type="text/javascript"> 
+    var userMap=new Map();
+    var userList = document.getElementById("donnees");
+    var selectUser = document.getElementById("nomDel");
+
+
+    function addF() {
+      let name =  document.getElementById("nom").value;
+      let prenom  = document.getElementById("prenom").value;
+      userMap.set(name,prenom);
+      display();
+    }
+    
+    function deleteF(){
+      var select = document.getElementById("nomDel");
+      var choice = select.selectedIndex; 
+      var name = select.options[choice].value;
+
+      console.log(name);
+      userMap.delete(name);
+      display();
+
+    }
+
+    function display(){
+      removeAllChildNodes(userList);
+      removeAllChildNodes(selectUser);
+        if(userMap.size != 0){
+        userMap.forEach((values,keys)=>{
+            var li = document.createElement("li");
+            var option = document.createElement("option");
+            userList.appendChild(li);
+            selectUser.appendChild(option);
+            li.innerText = keys  +  " " + values ;
+            option.innerText = keys  +  " " + values ;
+            li.setAttribute("id",keys);
+            option.setAttribute("value",keys);
+            option.setAttribute("id","optionDel")
+        })
+    }
+
+        function removeAllChildNodes(parent) {
+          while (parent.firstChild) {
+              parent.removeChild(parent.firstChild);
+          }
+        }
+    }      
+</script> 
+</body>
+</html>
