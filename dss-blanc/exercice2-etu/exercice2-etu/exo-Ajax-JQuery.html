@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+   <h1>Calculette de vitamines </h1>
+
+   <select id="fruitsEtLEgumes">
+      <option value="">--Composer son panier--</option>
+      <option value="pomme">pomme</option>
+      <option value="poireau">poireau</option>
+      <option value="courgette">courgette</option>
+      <option value="cerise">cerise</option>
+   </select>
+   <button id="envoyer">Ajouter</button>
+   <p id="fruits">Liste de fruits <span style="color:red" class="liste"></span> pour une quantité de vitamines de <span style="color:green" class="total"></span></p> 
+   <p id="legumes">Liste de légumes <span style="color:red" class="liste"></span> pour une quantité de vitamines de <span style="color:green" class="total"></span></p>  
+   <script>
+     listeFruits="";
+     vitaminesFruits=0;
+     listeLegumes="";   
+     vitaminesLegumes=0;
+
+     $("#envoyer").click(function() {   
+      let val = document.getElementById("fruitsEtLEgumes").value;
+         $.ajax({
+            url: 'fruits.php',
+            type: 'get', 
+            data: 'fruits=' + val, 
+            dataType: 'json', 
+            success: function(data, status) { 
+               console.log(data);
+             if (data.category =="fruit") {
+                listeFruits+= data.name + "/";
+                vitaminesFruits+= parseInt(data.vitamine);
+                $('#fruits .liste').text(listeFruits);
+                $('#fruits .total').text(vitaminesFruits);
+             }
+              else{
+                listeLegumes+= data.name + "/";
+                vitaminesLegumes+= parseInt(data.vitamine);
+                $('#legumes .liste').text(listeLegumes);
+                $('#legumes .total').text(vitaminesLegumes);
+              }
+            }, 
+            error: function(data, status, error) {
+                 $('body').append($('<div>', {
+                text: "probleme avec le serveur"
+            }));
+            }
+         });
+      });
+   </script>
+</body>
+
+</html>

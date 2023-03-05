@@ -1,0 +1,17 @@
+body {
+	background-color: #cccccc;
+	font-size: 13px;
+	font-family: Verdana, Arial, Sans-serif;
+}
+td{
+	text-align: center;
+}
+.gagne {
+	border: 2px solid green;
+}
+.perdu {
+	border: 2px solid red;
+}
+img {
+   border: 2px solid #cccccc;
+}
