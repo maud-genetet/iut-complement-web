@@ -53,7 +53,8 @@ window.onload=function() {
 		selects.forEach(function(select) {
 		select.addEventListener('change', function() {
 			getAnswer(select.id);
-		});
+		})
+
 		});
 	}
 

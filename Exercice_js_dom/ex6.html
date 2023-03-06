@@ -12,17 +12,20 @@
         <h2 id="textFlag">Bienvenue. Passez la souris sur l'un des deux liens !</h2>
     </div>
     <div id="link" class="d-flex justify-content-center">
-        <p div="english" class="m-2"><a href=""> english</a></p>
-        <p div="français" class="m-2"><a href=""> Français</a></p>
+        <p id="english" class="m-2"><a href=""> english</a></p>
+        <p id="français" class="m-2"><a href=""> Français</a></p>
     </div>
     <script>
-        document.getElementById("english").addEventListener("mouseover",displayEnglishFlag());
+        document.getElementById("english").addEventListener("mouseover",displayEnglishFlag);
+        let french = document.getElementById("français");
         document.getElementById("français").addEventListener("mouseover",displayFrenchFlag());
         let flag = document.getElementById("Flag")
         let textFlag = document.getElementById("textFlag")
         function displayEnglishFlag(){
             flag.removeChild(textFlag);
-
+            let english_flag = document.createElement('img');
+            english_flag.setAttribute('src','img/frenchFlag.png');
+            flag.appendChild(english_flag);
         }
 
         function displayFrenchFlag(){
