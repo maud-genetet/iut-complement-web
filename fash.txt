@@ -1,0 +1,21 @@
+event.preventDefault() : le comportement par defaut est bloqué
+
+.value sur un élément pour récupérer la valeur
+
+GetElementByTagName(…) :  récupère les éléments portant le nom de la balise
+
+QuerySelector : un élément
+
+QuerySelectorAll : sélectionne tous les éléments correspondants
+
+Pour sélectionner une classe « .nomClasse»
+
+.children : tous les enfants
+
+tabRockers.forEach(élément => {
+… });
+
+tabRockers.forEach(function(select){
+…)}
+
+Document.getElementById.getElementByTagName
